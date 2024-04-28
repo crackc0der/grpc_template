@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package client;
+
+option go_package = "github.com/crackc0der/grpc-demo";
+
+service Person {
+    rpc GetPerson(PersonRequest) returns (PersonMessage);
+    rpc SetPerson(PersonMessage) returns(PersonResponse);
+}
+
+message PersonMessage {
+    int64 Id = 1;
+    string FirstName = 2;
+    string LastName = 3;
+    int32 Age = 4;
+}
+
+message PersonRequest {
+    int64 Id = 1;
+}
+
+message PersonResponse {
+    int64 Id = 1;
+}
